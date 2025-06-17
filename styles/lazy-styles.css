@@ -1,1 +1,39 @@
-/* add global styles that can be loaded post LCP here */
+/* Lazy Stylesheet - Loaded after LCP */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+main img {
+  transition: transform 0.3s ease-in-out;
+}
+
+main img:hover {
+  transform: scale(1.02);
+}
+
+a.button:any-link {
+  transition: all 0.2s ease-in-out;
+}
+
+a.button:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.section.hero {
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
+  padding: 80px 20px;
+}
+
+.section.hero h1 {
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+footer {
+  font-size: 15px;
+  background-color: #f3f3f3;
+  color: #333;
+}
