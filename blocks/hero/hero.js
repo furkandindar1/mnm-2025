@@ -1,24 +1,57 @@
 export default function decorate(block) {
   block.classList.add('hero');
 
-  const title = block.querySelector('div:nth-child(1)');
-  const description = block.querySelector('div:nth-child(2)');
-  const button = block.querySelector('div:nth-child(3)');
-  const image = block.querySelector('div:nth-child(4)');
+  const rows = [...block.children];
 
-  if (image) {
-    const imageUrl = image.textContent.trim();
+  let titleText = '';
+  let descriptionText = '';
+  let buttonText = '';
+  let imageUrl = '';
+
+  rows.forEach((row) => {
+    const cells = [...row.children];
+    const label = cells[0]?.textContent?.toLowerCase()?.trim();
+    const value = cells[1]?.textContent?.trim();
+
+    switch (label) {
+      case 'title':
+        titleText = value;
+        break;
+      case 'description':
+        descriptionText = value;
+        break;
+      case 'button':
+        buttonText = value;
+        break;
+      case 'image':
+        imageUrl = value;
+        break;
+    }
+  });
+
+  if (imageUrl) {
     block.style.backgroundImage = `url(${imageUrl})`;
     block.style.backgroundSize = 'cover';
     block.style.backgroundPosition = 'center';
-    image.remove(); // metin olarak görünmesin
   }
 
-  if (button) {
+  if (titleText) {
+    const title = document.createElement('h1');
+    title.textContent = titleText;
+    block.append(title);
+  }
+
+  if (descriptionText) {
+    const desc = document.createElement('p');
+    desc.textContent = descriptionText;
+    block.append(desc);
+  }
+
+  if (buttonText) {
     const btn = document.createElement('a');
-    btn.href = '#'; // veya gerçek bir link
+    btn.href = '#';
     btn.className = 'hero-button';
-    btn.textContent = button.textContent.trim();
-    button.replaceWith(btn);
+    btn.textContent = buttonText;
+    block.append(btn);
   }
 }
