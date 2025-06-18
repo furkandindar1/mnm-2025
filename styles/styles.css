@@ -78,7 +78,7 @@ body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
-  background: #FA6100 url(./img/main_bg.jpg) top left no-repeat;
+  background: #FA6100 url(./media/main_bg.jpg) top left no-repeat;
   background-size: cover;
   width: 100%;
   padding-top: 155px;
