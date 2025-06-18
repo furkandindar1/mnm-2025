@@ -178,7 +178,7 @@ button {
   margin: 12px 0;
   padding: 0.75em 1.5em;
   border: none;
-  border-radius: 9999px; /* daha yumuşak görünüm */
+  border-radius: 9999px;
   font-family: var(--body-font-family);
   font-style: normal;
   font-weight: 600;
@@ -192,8 +192,6 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: all 0.25s ease;
 }
 
 a.button:hover,
@@ -201,8 +199,6 @@ a.button:focus,
 button:hover,
 button:focus {
   background-color: var(--link-hover-color);
-  transform: scale(1.02);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
   outline: none;
 }
 
@@ -211,17 +207,17 @@ button:disabled:hover {
   background-color: var(--light-color);
   color: var(--text-light-color);
   cursor: not-allowed;
-  box-shadow: none;
   opacity: 0.6;
 }
 
 a.button.secondary,
 button.secondary {
-  background: transparent;
+  background-color: transparent;
   color: #fff;
   border: 1px solid #fff;
   border-radius: 9999px;
 }
+
 a.button.secondary:hover,
 button.secondary:hover {
   background-color: #fff;
@@ -231,7 +227,7 @@ button.secondary:hover {
 
 a.button.menu,
 button.menu {
-  color: white;
+  color: #fff;
 }
 
 button.icon {
@@ -245,16 +241,13 @@ button.icon {
   background-color: var(--link-color);
   color: var(--background-color);
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 button.icon:hover,
 button.icon:focus {
   background-color: var(--link-hover-color);
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
+
 button.fab {
   position: fixed;
   bottom: 2rem;
@@ -265,20 +258,18 @@ button.fab {
   background-color: var(--link-color);
   color: var(--background-color);
   border: none;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   font-size: 1.5rem;
-  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 button.fab:hover,
 button.fab:focus {
   background-color: var(--link-hover-color);
-  transform: scale(1.1);
 }
+
 button.destructive {
   background-color: #ff4d4f;
   color: #fff;
@@ -288,15 +279,11 @@ button.destructive {
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(255, 77, 79, 0.3);
-  transition: all 0.2s ease;
 }
 
 button.destructive:hover,
 button.destructive:focus {
   background-color: #d9363e;
-  transform: scale(1.02);
-  box-shadow: 0 6px 16px rgba(255, 77, 79, 0.4);
 }
 
 main img {
