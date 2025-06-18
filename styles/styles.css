@@ -82,7 +82,6 @@ body {
   background-repeat: no-repeat;
   background-color: var(--background-color); /* ya da direkt #FA6100 */
   background-size: cover;
-  width: 100%;
   padding-top: 155px;
 }
 
