@@ -164,3 +164,24 @@ export default async function decorate(block) {
   navWrapper.append(nav);
   block.append(navWrapper);
 }
+/**
+ * Türkçe büyük harf dönüşümünü düzeltir
+ */
+function toTurkishUpper(str) {
+  return str
+    .replace(/i/g, 'İ')
+    .replace(/ı/g, 'I')
+    .replace(/ş/g, 'Ş')
+    .replace(/ğ/g, 'Ğ')
+    .replace(/ü/g, 'Ü')
+    .replace(/ö/g, 'Ö')
+    .replace(/ç/g, 'Ç')
+    .toUpperCase();
+}
+
+// Sayfadaki tüm "text-transform: uppercase" sınıflarını Türkçe'ye uygun şekilde dönüştür
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.uppercase-text').forEach((el) => {
+    el.textContent = toTurkishUpper(el.textContent);
+  });
+});
