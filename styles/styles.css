@@ -1,12 +1,12 @@
 /* === ROOT VARIABLES === */
 :root {
-  --background-color: #ffffff;
+  --background-color: #F54925;
   --light-color: #F59225;
   --dark-color: #F54925;
-  --text-color: #000000;
-  --text-light-color: #ffffff;
-  --link-color: #F46F25;
-  --link-hover-color: #F54925;
+  --text-color: #fff;
+  --text-light-color: #F59225;
+  --link-color: #fff;
+  --link-hover-color: #F59225;
 
   --body-font-family: roboto, roboto-fallback, sans-serif;
   --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
