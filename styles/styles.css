@@ -73,12 +73,14 @@
 body {
   display: none;
   margin: 0;
-  background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
-  background: #FA6100 url(/media/main_bg.jpg) top left no-repeat;
+  background-image: url(/media/main_bg.jpg);
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-color: var(--background-color); /* ya da direkt #FA6100 */
   background-size: cover;
   width: 100%;
   padding-top: 155px;
