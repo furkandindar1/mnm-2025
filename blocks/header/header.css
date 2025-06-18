@@ -4,8 +4,11 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
+  top: 0;
+  left: 0;
 }
 
+/* base nav layout - mobile default */
 header nav {
   box-sizing: border-box;
   display: grid;
@@ -21,6 +24,7 @@ header nav {
   font-family: var(--body-font-family);
 }
 
+/* nav expanded (mobile) */
 header nav[aria-expanded='true'] {
   grid-template:
     'hamburger brand' var(--nav-height)
@@ -30,6 +34,7 @@ header nav[aria-expanded='true'] {
   min-height: 100dvh;
 }
 
+/* nav desktop override */
 @media (min-width: 900px) {
   header nav {
     display: flex;
@@ -50,6 +55,7 @@ header nav p {
   line-height: 1;
 }
 
+/* link styling limited to nav */
 header nav .nav-sections a:any-link,
 header nav .nav-brand a:any-link {
   color: currentcolor;
@@ -65,10 +71,8 @@ header nav .nav-hamburger {
 }
 
 header nav .nav-hamburger button {
+  all: unset;
   height: 22px;
-  margin: 0;
-  border: 0;
-  padding: 0;
   background-color: var(--background-color);
   color: inherit;
   font: inherit;
@@ -81,21 +85,15 @@ header nav .nav-hamburger-icon::after {
   display: block;
   position: relative;
   width: 20px;
+  background: currentcolor;
 }
 
 header nav .nav-hamburger-icon::before,
 header nav .nav-hamburger-icon::after {
   content: '';
   position: absolute;
-  background: currentcolor;
-}
-
-header nav[aria-expanded='false'] .nav-hamburger-icon,
-header nav[aria-expanded='false'] .nav-hamburger-icon::before,
-header nav[aria-expanded='false'] .nav-hamburger-icon::after {
   height: 2px;
   border-radius: 2px;
-  background: currentcolor;
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::before {
@@ -114,16 +112,19 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::before,
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   top: 3px;
   left: 1px;
-  transform: rotate(45deg);
-  transform-origin: center;
   width: 24px;
   height: 2px;
   border-radius: 2px;
+  transform-origin: center;
+}
+
+header nav[aria-expanded='true'] .nav-hamburger-icon::before {
+  transform: rotate(45deg);
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: unset;
   bottom: 3px;
+  top: unset;
   transform: rotate(-45deg);
 }
 
@@ -162,8 +163,8 @@ header nav[aria-expanded='true'] .nav-sections {
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
   margin: 0;
+  font-size: var(--body-font-size-s);
 }
 
 header nav .nav-sections ul > li {
@@ -196,13 +197,12 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections .nav-drop::after {
     content: '';
-    display: inline-block;
     position: absolute;
     top: 0.5em;
     right: 2px;
-    transform: rotate(135deg);
     width: 6px;
     height: 6px;
+    transform: rotate(135deg);
     border: 2px solid currentcolor;
     border-width: 2px 2px 0 0;
     border-radius: 0 1px 0 0;
@@ -232,12 +232,13 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
     display: block;
     position: absolute;
+    top: 150%;
     left: -1.5rem;
     width: 200px;
-    top: 150%;
     padding: 1rem;
     background-color: var(--light-color);
-    white-space: initial;
+    white-space: normal;
+    z-index: 10;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
@@ -245,8 +246,6 @@ header nav .nav-sections ul > li > ul > li {
     position: absolute;
     top: -8px;
     left: 1rem;
-    width: 0;
-    height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 8px solid var(--light-color);
