@@ -223,13 +223,13 @@ button.secondary {
   border-radius: 9999px;
   backdrop-filter: blur(8px);
   box-shadow: none;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 a.button.secondary:hover,
 button.secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: scale(1.03);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+  background-color: #fff;
+  color: #F46F25;
+  border-color: #fff;
 }
 
 a.button.menu,
