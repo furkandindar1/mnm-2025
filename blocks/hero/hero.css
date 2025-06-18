@@ -4,18 +4,10 @@
 }
 
 .hero {
-  position: relative;
-  padding: 120px 24px;
-  min-height: 400px;
   background-image: url('/media/main_bg.jpg');
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: var(--background-color);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 100px;
+  color: white;
 }
 
 .hero h1 {
