@@ -10,3 +10,6 @@ export default function decorate(block) {
   block.innerHTML = '';
   block.appendChild(content);
 }
+export default function decorate(block) {
+  block.classList.add('hero');
+}
