@@ -221,9 +221,6 @@ button.secondary {
   color: #fff;
   border: 1px solid #fff;
   border-radius: 9999px;
-  backdrop-filter: blur(8px);
-  box-shadow: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 a.button.secondary:hover,
 button.secondary:hover {
