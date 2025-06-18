@@ -52,10 +52,6 @@ body {
   font-size: var(--body-font-size-m);
   line-height: 1.6;
   background-color: var(--background-color);
-  background-image: url(/media/main_bg.jpg);
-  background-position: top left;
-  background-repeat: no-repeat;
-  width: 100%;
   padding-top: var(--nav-height);
 }
 
