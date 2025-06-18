@@ -80,9 +80,7 @@ body {
   background-image: url(/media/main_bg.jpg);
   background-position: top left;
   background-repeat: no-repeat;
-  background-color: var(--background-color); /* ya da direkt #FA6100 */
-  background-size: cover;
-  padding-top: 155px;
+  background-color: var(--background-color);
 }
 
 body.appear {
