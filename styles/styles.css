@@ -1,34 +1,20 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
+/* === ROOT VARIABLES === */
 :root {
-  /* colors */
-  --background-color: white;
+  --background-color: #ffffff;
   --light-color: #F59225;
   --dark-color: #F54925;
-  --text-color: #ffffff;
+  --text-color: #000000;
+  --text-light-color: #ffffff;
   --link-color: #F46F25;
   --link-hover-color: #F54925;
 
-  /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
   --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
 
-  /* body sizes */
   --body-font-size-m: 22px;
   --body-font-size-s: 19px;
   --body-font-size-xs: 17px;
 
-  /* heading sizes */
   --heading-font-size-xxl: 55px;
   --heading-font-size-xl: 44px;
   --heading-font-size-l: 34px;
@@ -36,31 +22,24 @@
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
 
-  /* nav height */
   --nav-height: 64px;
 }
 
-/* fallback fonts */
-@font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
+:root.dark {
+  --background-color: #121212;
+  --light-color: #2c2c2c;
+  --dark-color: #F46F25;
+  --text-color: #f5f5f5;
+  --text-light-color: #cccccc;
+  --link-color: #F59225;
+  --link-hover-color: #F46F25;
 }
 
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
-}
-
-@media (width >= 900px) {
+@media (min-width: 900px) {
   :root {
-    /* body sizes */
     --body-font-size-m: 18px;
     --body-font-size-s: 16px;
     --body-font-size-xs: 14px;
-
-    /* heading sizes */
     --heading-font-size-xxl: 45px;
     --heading-font-size-xl: 36px;
     --heading-font-size-l: 28px;
@@ -70,6 +49,11 @@
   }
 }
 
+/* === GLOBAL === */
+html {
+  scroll-padding-top: var(--nav-height);
+}
+
 body {
   display: none;
   margin: 0;
@@ -77,37 +61,19 @@ body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
+  background-color: var(--background-color);
   background-image: url(/media/main_bg.jpg);
   background-position: top left;
-  width: 100%;
   background-repeat: no-repeat;
-  background-color: var(--background-color);
+  width: 100%;
 }
 
 body.appear {
   display: block;
 }
 
-header {
-  height: var(--nav-height);
-}
-
-header .header,
-footer .footer {
-  visibility: hidden;
-}
-
-header .header[data-block-status="loaded"],
-footer .footer[data-block-status="loaded"] {
-  visibility: visible;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* === HEADINGS & TEXT === */
+h1, h2, h3, h4, h5, h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
@@ -123,18 +89,12 @@ h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
 
-p,
-dl,
-ol,
-ul,
-pre,
-blockquote {
+p, dl, ol, ul, pre, blockquote {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
 }
 
-code,
-pre {
+code, pre {
   font-size: var(--body-font-size-s);
 }
 
@@ -146,22 +106,20 @@ pre {
   white-space: pre;
 }
 
-main > div {
-  margin: 40px 16px;
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: none;
+  }
+  pre {
+    background-color: var(--light-color);
+  }
 }
 
-input,
-textarea,
-select,
-button {
-  font: inherit;
-}
-
-/* links */
+/* === LINKS === */
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 a:hover {
@@ -169,7 +127,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* buttons */
+/* === BUTTONS === */
 a.button:any-link,
 button {
   box-sizing: border-box;
@@ -180,7 +138,6 @@ button {
   border: none;
   border-radius: 9999px;
   font-family: var(--body-font-family);
-  font-style: normal;
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.25;
@@ -189,9 +146,9 @@ button {
   background-color: var(--link-color);
   color: var(--background-color);
   cursor: pointer;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 a.button:hover,
@@ -225,11 +182,7 @@ button.secondary:hover {
   border-color: #fff;
 }
 
-a.button.menu,
-button.menu {
-  color: #F46F25;
-}
-
+/* === ICON & FAB BUTTONS === */
 button.icon {
   all: unset;
   display: inline-flex;
@@ -261,8 +214,8 @@ button.fab {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
   font-size: 1.5rem;
+  z-index: 1000;
 }
 
 button.fab:hover,
@@ -270,6 +223,7 @@ button.fab:focus {
   background-color: var(--link-hover-color);
 }
 
+/* === DESTRUCTIVE === */
 button.destructive {
   background-color: #ff4d4f;
   color: #fff;
@@ -286,24 +240,47 @@ button.destructive:focus {
   background-color: #d9363e;
 }
 
-main img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
-}
-
-.icon {
-  display: inline-block;
-  height: 24px;
-  width: 24px;
-}
-
-.icon img {
-  height: 100%;
+/* === FORM ELEMENTS === */
+input,
+textarea,
+select {
+  appearance: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.6em 1em;
+  background-color: #fff;
+  color: #000;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
   width: 100%;
+  box-sizing: border-box;
 }
 
-/* sections */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--link-color);
+  background-color: #fef9f5;
+}
+
+:root.dark input,
+:root.dark textarea,
+:root.dark select {
+  background-color: #1e1e1e;
+  border-color: #444;
+  color: #f5f5f5;
+}
+
+:root.dark input:focus,
+:root.dark textarea:focus,
+:root.dark select:focus {
+  background-color: #2c2c2c;
+  border-color: var(--link-color);
+}
+
+/* === SECTION WRAPPERS === */
 main > .section {
   margin: 40px 0;
 }
@@ -318,16 +295,60 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
-@media (width >= 900px) {
+@media (min-width: 900px) {
   main > .section > div {
     padding: 0 32px;
   }
 }
 
-/* section metadata */
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+/* === DARK MODE TOGGLE SWITCH === */
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 24px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.theme-toggle .slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.theme-toggle input:checked + .slider {
+  background-color: var(--link-color);
+}
+
+.theme-toggle input:checked + .slider::before {
+  transform: translateX(24px);
 }
