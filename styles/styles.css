@@ -122,7 +122,7 @@ button {
   text-align: center;
   text-decoration: none;
   background-color: var(--link-color);
-  color: var(--background-color);
+  color: var(--link-color);
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
