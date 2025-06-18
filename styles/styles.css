@@ -78,6 +78,10 @@ body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
+  background: #FA6100 url(./img/main_bg.jpg) top left no-repeat;
+  background-size: cover;
+  width: 100%;
+  padding-top: 155px;
 }
 
 body.appear {
@@ -226,6 +230,70 @@ button.secondary:hover {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   transform: scale(1.03);
+}
+button.icon {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--link-color);
+  color: var(--background-color);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+button.icon:hover,
+button.icon:focus {
+  background-color: var(--link-hover-color);
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+button.fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--link-color);
+  color: var(--background-color);
+  border: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  font-size: 1.5rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button.fab:hover,
+button.fab:focus {
+  background-color: var(--link-hover-color);
+  transform: scale(1.1);
+}
+button.destructive {
+  background-color: #ff4d4f;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.75em 1.5em;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 77, 79, 0.3);
+  transition: all 0.2s ease;
+}
+
+button.destructive:hover,
+button.destructive:focus {
+  background-color: #d9363e;
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(255, 77, 79, 0.4);
 }
 
 main img {
